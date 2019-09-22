@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 import WelcomeScreen from '../components/WelcomeScreen';
 import TodosList from '../components/TodosList';
 import EditTodoPage from '../components/EditTodoPage';
@@ -8,7 +9,7 @@ import NotFoundPage from '../components/NotFoundPage';
 const AppRouter = () => (
     <HashRouter>
         <div>
-
+            <Navigation />
             <Switch>
                 <Route path='/' component={WelcomeScreen} exact={true} />
                 <Route path='/list' component={TodosList} />
