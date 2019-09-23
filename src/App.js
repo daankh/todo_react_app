@@ -9,7 +9,7 @@ const store = configureStore();
 
 //Add todo test
 const toEdit = store.dispatch(addTodo({
-  name: 'Do your work', description: 'desc 1'
+  name: 'Do your work', description: 'description of task 1', comments: ['some comment', 'some comment 2'],
 }));
 
 const toRemove = store.dispatch(addTodo({
