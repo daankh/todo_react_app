@@ -20,3 +20,9 @@ export const addTodo = (
     }
 })
 
+//REMOVE_TODO
+export const removeTodo = ({ id } = {}) => ({
+    type: 'REMOVE_TODO',
+    id,
+})
+
