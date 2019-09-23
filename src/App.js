@@ -2,13 +2,13 @@ import React from 'react';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
 import configureStore from "./store/configureStore";
-import { addTodo, removeTodo } from './actions/todos';
+import { addTodo, removeTodo, editTodo } from './actions/todos';
 import './App.css';
 
 const store = configureStore();
 
 //Add todo test
-store.dispatch(addTodo({
+const toEdit = store.dispatch(addTodo({
   name: 'Do your work'
 }));
 
@@ -24,6 +24,13 @@ console.log(store.getState())
 
 //Remove todo test
 store.dispatch(removeTodo({ id: toRemove.todo.id }))
+
+console.log(store.getState())
+
+//Edit todo test
+store.dispatch(editTodo(toEdit.todo.id, {
+  name: 'Ride a bike'
+}))
 
 console.log(store.getState())
 

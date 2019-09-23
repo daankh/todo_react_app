@@ -26,3 +26,10 @@ export const removeTodo = ({ id } = {}) => ({
     id,
 })
 
+//EDIT_TODO
+export const editTodo = (id, updates) => ({
+    type: 'EDIT_TODO',
+    id,
+    updates,
+})
+
