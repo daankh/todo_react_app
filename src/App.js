@@ -9,30 +9,34 @@ const store = configureStore();
 
 //Add todo test
 const toEdit = store.dispatch(addTodo({
-  name: 'Do your work'
+  name: 'Do your work', description: 'desc 1'
 }));
 
 const toRemove = store.dispatch(addTodo({
-  name: 'Buy Food'
+  name: 'Buy Food', description: 'desc 1'
 }));
 
 store.dispatch(addTodo({
-  name: 'Make coffee'
+  name: 'Make coffee', description: 'desc 1'
 }));
 
-console.log(store.getState())
+store.dispatch(addTodo({
+  name: 'Call to ...', description: 'desc 1'
+}));
+
+// console.log(store.getState())
 
 //Remove todo test
 store.dispatch(removeTodo({ id: toRemove.todo.id }))
 
-console.log(store.getState())
+// console.log(store.getState())
 
 //Edit todo test
 store.dispatch(editTodo(toEdit.todo.id, {
   name: 'Ride a bike'
 }))
 
-console.log(store.getState())
+// console.log(store.getState())
 
 function App() {
   return (
