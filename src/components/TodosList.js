@@ -1,10 +1,10 @@
 import React from 'react';
 
-const TodosList = (props) => {
+const TodoList = () => {
 
     return (
-        <p>It comes from todos list</p>
+        <h1>item</h1>
     )
 }
 
-export default TodosList
+export default TodoList
