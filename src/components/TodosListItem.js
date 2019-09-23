@@ -7,11 +7,9 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import Box from '@material-ui/core/Box';
-
 // import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+// import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -20,11 +18,10 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
     },
     heading: {
-        fontSize: theme.typography.pxToRem(15),
+        fontSize: theme.typography.pxToRem(22),
         flexBasis: '33.33%',
         flexShrink: 0,
         fontWeight: 700,
-        fontSize: '22px',
     },
     secondaryHeading: {
         fontSize: theme.typography.pxToRem(15),
@@ -68,15 +65,12 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
             <ExpansionPanelDetails style={{
                 flexDirection: 'column',
             }}>
-
                 <Typography>
                     {description}
                 </Typography>
-
                 <Typography>
                     {comments}
                 </Typography>
-
             </ExpansionPanelDetails>
         </ExpansionPanel>
     );
