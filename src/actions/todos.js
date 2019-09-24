@@ -27,9 +27,8 @@ export const removeTodo = ({ id } = {}) => ({
 })
 
 //EDIT_TODO
-export const editTodo = (id, updates) => ({
+export const editTodo = (todo) => ({
     type: 'EDIT_TODO',
-    id,
-    updates,
+    todo
 })
 

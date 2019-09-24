@@ -32,11 +32,15 @@ store.dispatch(removeTodo({ id: toRemove.todo.id }))
 // console.log(store.getState())
 
 //Edit todo test
-store.dispatch(editTodo(toEdit.todo.id, {
-  name: 'Ride a bike'
-}))
+const toEditCopy = {
+  ...toEdit.todo,
+  name: 'Ride a bikeee',
+  timestamp: 200000000000,
+}
 
-// console.log(store.getState())
+store.dispatch(editTodo(toEditCopy))
+
+console.log(store.getState())
 
 function App() {
   return (
