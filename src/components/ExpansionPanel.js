@@ -37,9 +37,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TopPanel = (props) => {
+const TopPanel = ({ purpose, heading, content }) => {
   const classes = useStyles();
-  const { purpose, heading, content } = props;
   let displayingContent = null;
 
   if (purpose === 'details') {
