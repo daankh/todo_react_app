@@ -15,7 +15,8 @@ const toEdit = store.dispatch(addTodo({
 }));
 
 const toRemove = store.dispatch(addTodo({
-  name: 'Buy Food', description: 'desc 1'
+  name: 'Buy Food', description: 'desc 1',
+  done: true,
 }));
 
 store.dispatch(addTodo({

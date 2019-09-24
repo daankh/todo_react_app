@@ -41,9 +41,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
     <Box component="div" className={classes.wrapper}>
       <Box component="div" p={1} className={classes.row}>
         <Checkbox
-          value="checkedA"
-          inputProps={{ 'aria-label': 'Checkbox A' }
-          }
+          checked={done}
         />
         <Typography variant="h4" component="h4" className={classes.mainHeading}>
           {name}
@@ -59,12 +57,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
           Delete
       </Button>
       </Box>
-      <Box component="div" className={classes.row}>
-        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      </Box>
-      <Box component="div" className={classes.row}>
-        <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
-      </Box>
+      <ExpansionPanel purpose='details' heading={'Details'} content={description} />
+      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
     </Box>
   );
 }
