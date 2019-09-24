@@ -2,11 +2,11 @@ import uuid from 'uuid';
 //ADD_TODO
 export const addTodo = (
     {
-        name = '',
-        timestamp = 0,
-        done = false,
-        description = '',
-        comments = ''
+        name,
+        timestamp,
+        done,
+        description,
+        comments,
     }
 ) => ({
     type: 'ADD_TODO',

@@ -9,7 +9,9 @@ const store = configureStore();
 
 //Add todo test
 const toEdit = store.dispatch(addTodo({
-  name: 'Do your work', description: 'description of task 1', comments: ['some comment', 'some comment 2'],
+  name: 'Do your work',
+  description: 'description of task 1',
+  comments: ['some comment', 'some comment 2'],
 }));
 
 const toRemove = store.dispatch(addTodo({
@@ -17,11 +19,19 @@ const toRemove = store.dispatch(addTodo({
 }));
 
 store.dispatch(addTodo({
-  name: 'Make coffee', description: 'desc 1'
+  name: 'Make coffee', description: 'desc 1',
+  timestamp: 300000000,
+  done: false,
+  description: 'Some description',
+  comments: ['some comment', 'some comment 2', 'some comment 3'],
 }));
 
 store.dispatch(addTodo({
-  name: 'Call to ...',
+  name: 'Call too..',
+  timestamp: 300000000,
+  done: false,
+  description: 'Some description',
+  comments: [],
 }));
 
 // console.log(store.getState())
