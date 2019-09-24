@@ -41,9 +41,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
     <Box component="div" className={classes.wrapper}>
       <Box component="div" p={1} className={classes.row}>
         <Checkbox
-          value="checkedA"
-          inputProps={{ 'aria-label': 'Checkbox A' }
-          }
+          checked={done}
         />
         <Typography variant="h4" component="h4" className={classes.mainHeading}>
           {name}
