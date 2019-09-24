@@ -6,7 +6,7 @@ const TodosListPage = (props) => {
 
     return (
         <Fragment>
-            <ButtonAppBar />
+            <ButtonAppBar showAddTodoBtn={true} />
             <TodosList />
         </Fragment>
     )

@@ -20,6 +20,7 @@ const AppRouter = () => (
                     <Switch>
                         <Route path='/' component={WelcomeScreen} exact={true} />
                         <Route path='/list' component={TodosListPage} />
+                        <Route path='/add' component={TodosListPage} />
                         <Route path='/:id/edit' component={EditTodoPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
