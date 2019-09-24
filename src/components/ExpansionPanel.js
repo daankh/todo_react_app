@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     color: '#fff',
     borderRadius: '5px',
   },
-  wrapperComment: {
+  commentWrapper: {
     width: '100%',
     display: 'flex'
   },
@@ -85,7 +85,7 @@ export default (props) => {
           <Box className={classes.wrapper}>
             {displayingContent}
             {purpose === 'comments' && (
-              <Box component="div" className={classes.wrapperComment} p={1}>
+              <Box component="div" className={classes.commentWrapper} p={1}>
                 <Input
                   type={'text'}
                   className={classes.addCommentInput}
