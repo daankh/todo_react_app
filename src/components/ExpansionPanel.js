@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TopPanel = ({ purpose, heading, content }) => {
+const Panel = ({ purpose, heading, content }) => {
   const classes = useStyles();
   let displayingContent = null;
 
@@ -101,4 +101,4 @@ const TopPanel = ({ purpose, heading, content }) => {
   )
 }
 
-export default TopPanel
+export default Panel
