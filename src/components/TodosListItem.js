@@ -5,11 +5,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-// import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpansionPanel from './ExpansionPanel';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -71,22 +67,10 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
       </Button>
       </Box>
       <Box component="div" className={classes.row}>
-        <div className={classes.root}>
-          <ExpansionPanel>
-            <ExpansionPanelSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-              <Typography className={classes.heading}>Show details</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Typography>
-                {description}
-              </Typography>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        </div>
+        <ExpansionPanel heading={'show details'} content={description} />
+      </Box>
+      <Box component="div" className={classes.row}>
+        <ExpansionPanel heading={'show comments'} content={comments} />
       </Box>
     </Box>
   );
