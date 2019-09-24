@@ -57,12 +57,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
           Delete
       </Button>
       </Box>
-      <Box component="div" className={classes.row}>
-        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      </Box>
-      <Box component="div" className={classes.row}>
-        <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
-      </Box>
+      <ExpansionPanel purpose='details' heading={'Details'} content={description} />
+      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
     </Box>
   );
 }
