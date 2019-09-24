@@ -2,14 +2,16 @@ import React from 'react';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
 import configureStore from "./store/configureStore";
-import { addTodo, removeTodo, editTodo } from './actions/todos';
+import { addTodo, removeTodo, editTodo, addComment } from './actions/todos';
 import './App.css';
 
 const store = configureStore();
 
 //Add todo test
 const toEdit = store.dispatch(addTodo({
-  name: 'Do your work', description: 'description of task 1', comments: ['some comment', 'some comment 2'],
+  name: 'Do your work',
+  description: 'description of task 1',
+  comments: ['some comment', 'some comment 2'],
 }));
 
 const toRemove = store.dispatch(addTodo({
@@ -18,12 +20,27 @@ const toRemove = store.dispatch(addTodo({
 }));
 
 store.dispatch(addTodo({
-  name: 'Make coffee', description: 'desc 1'
+  name: 'Make coffee',
+  timestamp: 300000000,
+  done: false,
+  description: 'Some description',
+  comments: ['some comment', 'some comment 2', 'some comment 3'],
 }));
 
 store.dispatch(addTodo({
-  name: 'Call to ...',
-  done: true,
+  name: 'Call too..',
+  timestamp: 300000000,
+  done: false,
+  description: 'Some description',
+  comments: [],
+}));
+
+const toAddComment = store.dispatch(addTodo({
+  name: 'Take a walk',
+  timestamp: 300000000000,
+  done: false,
+  description: 'Some description of task 4',
+  comments: [],
 }));
 
 // console.log(store.getState())
@@ -34,11 +51,19 @@ store.dispatch(removeTodo({ id: toRemove.todo.id }))
 // console.log(store.getState())
 
 //Edit todo test
-store.dispatch(editTodo(toEdit.todo.id, {
-  name: 'Ride a bike'
-}))
+const toEditCopy = {
+  ...toEdit.todo,
+  name: 'Ride a bikeee',
+  timestamp: 200000000000,
+}
 
-// console.log(store.getState())
+store.dispatch(editTodo(toEditCopy))
+
+//Add comment test
+const comment = 'new comment';
+store.dispatch(addComment(toAddComment.todo, comment));
+
+console.log(store.getState())
 
 function App() {
   return (

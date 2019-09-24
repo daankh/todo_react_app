@@ -8,16 +8,28 @@ export default (state = todosReducerDefaultState, action) => {
         case 'REMOVE_TODO':
             return state.filter(({ id }) => id !== action.id);
         case 'EDIT_TODO':
-            return state.map(expense => {
-                if (expense.id === action.id) {
+            return state.map(todo => {
+                if (todo.id === action.todo.id) {
                     return {
-                        ...expense,
-                        ...action.updates,
+                        ...todo,
+                        ...action.todo,
                     }
                 } else {
-                    return expense
+                    return todo
                 }
-            })
+            });
+        case 'ADD_COMMENT':
+            return state.map(todo => {
+                if (todo.id === action.todo.id) {
+                    const comments = [...todo.comments, action.comment]
+                    return {
+                        ...todo,
+                        comments,
+                    }
+                } else {
+                    return todo
+                }
+            });
         default:
             return state;
     }
