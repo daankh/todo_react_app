@@ -17,7 +17,19 @@ export default (state = todosReducerDefaultState, action) => {
                 } else {
                     return todo
                 }
-            })
+            });
+        case 'ADD_COMMENT':
+            return state.map(todo => {
+                if (todo.id === action.todo.id) {
+                    const comments = [...todo.comments, action.comment]
+                    return {
+                        ...todo,
+                        comments,
+                    }
+                } else {
+                    return todo
+                }
+            });
         default:
             return state;
     }

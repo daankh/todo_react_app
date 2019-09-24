@@ -32,3 +32,10 @@ export const editTodo = (todo) => ({
     todo
 })
 
+//ADD_COMMENT
+export const addComment = (todo, comment) => ({
+    type: 'ADD_COMMENT',
+    todo,
+    comment,
+})
+

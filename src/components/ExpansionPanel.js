@@ -53,7 +53,7 @@ export default (props) => {
       )
     }
   } else if (purpose === 'comments') {
-    if (!content) {
+    if (!content.length) {
       displayingContent = 'There are no comments. You can add some below.'
     } else {
       displayingContent = (
