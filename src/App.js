@@ -21,7 +21,7 @@ store.dispatch(addTodo({
 }));
 
 store.dispatch(addTodo({
-  name: 'Call to ...', description: 'desc 1'
+  name: 'Call to ...',
 }));
 
 // console.log(store.getState())

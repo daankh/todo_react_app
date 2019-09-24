@@ -32,13 +32,6 @@ const useStyles = makeStyles(theme => ({
   timestamp: {
     marginRight: theme.spacing(1),
   },
-  root: {
-    width: '100%',
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
 }));
 
 const TodosListItem = ({ id, name, timestamp, done, description, comments }) => {
@@ -67,10 +60,10 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
       </Button>
       </Box>
       <Box component="div" className={classes.row}>
-        <ExpansionPanel heading={'show details'} content={description} />
+        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
       </Box>
       <Box component="div" className={classes.row}>
-        <ExpansionPanel heading={'show comments'} content={comments} />
+        <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
       </Box>
     </Box>
   );
