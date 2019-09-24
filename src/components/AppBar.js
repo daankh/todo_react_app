@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import AddTodoBtn from './AddTodoBtn';
+import HomeBtn from './HomeBtn';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -28,6 +29,7 @@ export default function ButtonAppBar(props) {
                         Todo App
                     </Typography>
                     {props.showAddTodoBtn && <AddTodoBtn />}
+                    {props.showHomeBtn && <HomeBtn />}
                 </Toolbar>
             </AppBar>
         </div>

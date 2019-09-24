@@ -10,6 +10,7 @@ import TodosListPage from '../components/TodosListPage';
 import EditTodoPage from '../components/EditTodoPage';
 import NotFoundPage from '../components/NotFoundPage';
 // import ButtonAppBar from '../components/AppBar';
+import TodoForm from '../components/TodoFrom';
 
 const AppRouter = () => (
     <HashRouter>
@@ -20,7 +21,7 @@ const AppRouter = () => (
                     <Switch>
                         <Route path='/' component={WelcomeScreen} exact={true} />
                         <Route path='/list' component={TodosListPage} />
-                        <Route path='/add' component={TodosListPage} />
+                        <Route path='/add' component={TodoForm} />
                         <Route path='/:id/edit' component={EditTodoPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
