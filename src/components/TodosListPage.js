@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
 import ButtonAppBar from '../components/AppBar';
-import WelcomeInfo from './WelcomeInfo';
+import TodosList from './TodosList'
 
-const WelcomeScreen = () => {
+const TodosListPage = (props) => {
+
     return (
         <Fragment>
             <ButtonAppBar />
-            <WelcomeInfo />
+            <TodosList />
         </Fragment>
-    );
+    )
 }
 
-export default WelcomeScreen
+export default TodosListPage

@@ -1,10 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Box from '@material-ui/core/Box';
+import TodosListItem from './TodosListItem';
 
-const TodosList = (props) => {
+const TodoList = ({ todos }) => {
 
-    return (
-        <p>It comes from todos list</p>
-    )
+  return (
+    <Box component="div">
+      {todos.map((todo) => {
+        return <TodosListItem key={todo.id} {...todo} />
+      })}
+    </Box>
+  )
 }
 
-export default TodosList
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  }
+}
+
+export default connect(mapStateToProps)(TodoList);

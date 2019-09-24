@@ -1,22 +1,31 @@
 import React from 'react';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 import WelcomeScreen from '../components/WelcomeScreen';
-import TodosList from '../components/TodosList';
+import TodosListPage from '../components/TodosListPage';
 import EditTodoPage from '../components/EditTodoPage';
 import NotFoundPage from '../components/NotFoundPage';
+// import ButtonAppBar from '../components/AppBar';
 
 const AppRouter = () => (
     <HashRouter>
-        <div>
-            <Navigation />
-            <Switch>
-                <Route path='/' component={WelcomeScreen} exact={true} />
-                <Route path='/list' component={TodosList} />
-                <Route path='/:id/edit' component={EditTodoPage} />
-                <Route component={NotFoundPage} />
-            </Switch>
-        </div>
+        <React.Fragment>
+            <CssBaseline />
+            <Container maxWidth="md">
+                <Typography component="div" style={{ height: '100vh' }}>
+                    <Switch>
+                        <Route path='/' component={WelcomeScreen} exact={true} />
+                        <Route path='/list' component={TodosListPage} />
+                        <Route path='/:id/edit' component={EditTodoPage} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </Typography>
+            </Container>
+        </React.Fragment>
     </HashRouter>
 )
 
