@@ -27,8 +27,10 @@ class TodoForm extends Component {
     }
 
     inputChangeHandler = (e) => {
+        const { name, value } = e.target
+
         this.setState({
-            [e.target.name]: e.target.value
+            [name]: value
         })
     }
 
