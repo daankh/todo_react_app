@@ -16,10 +16,10 @@ const TodoList = ({ todos, comments }) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ todos, comments }) => {
   return {
-    todos: state.todos.todosList,
-    comments: state.comments.commentsList,
+    todos: todos.todosList,
+    comments: comments.commentsList,
   }
 }
 

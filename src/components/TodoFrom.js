@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions/todos'
 import moment from 'moment';
 import uuid from 'uuid';
-// import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -12,8 +13,6 @@ import ButtonAppBar from './AppBar';
 import { classes } from 'istanbul-lib-coverage';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
-import { addTodo } from '../actions/todos';
 
 class TodoForm extends Component {
     constructor(props) {
@@ -37,6 +36,7 @@ class TodoForm extends Component {
     addTodo = (e) => {
         e.preventDefault();
         const { name } = this.state
+        const { addTodo, history } = this.props
 
         if (name) {
             const todo = {
@@ -44,8 +44,8 @@ class TodoForm extends Component {
                 id: uuid(),
             }
 
-            this.props.dispatch(addTodo(todo));
-            this.props.history.push('/list');
+            addTodo(todo);
+            history.push('/list');
         }
     }
 
@@ -85,4 +85,8 @@ class TodoForm extends Component {
     }
 }
 
-export default connect()(TodoForm);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(TodoForm);
