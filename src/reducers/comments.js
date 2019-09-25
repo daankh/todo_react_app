@@ -1,5 +1,6 @@
-import { ADD_COMMENT } from '../actions/comments'
 import moment from 'moment';
+import { ADD_COMMENT } from '../actions/comments'
+
 
 const commentsReducerDefaultState = {
     commentsList: []
