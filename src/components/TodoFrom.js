@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions/todos'
+import { addTodo } from '../actions/todos'
 import moment from 'moment';
 import uuid from 'uuid';
 import Box from '@material-ui/core/Box';
@@ -85,8 +84,8 @@ class TodoForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(actionCreators, dispatch)
+const mapDispatchToProps = {
+    addTodo
 }
 
 export default connect(null, mapDispatchToProps)(TodoForm);
