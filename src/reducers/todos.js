@@ -1,4 +1,3 @@
-
 const todosReducerDefaultState = [];
 
 export default (state = todosReducerDefaultState, action) => {
@@ -13,18 +12,6 @@ export default (state = todosReducerDefaultState, action) => {
                     return {
                         ...todo,
                         ...action.todo,
-                    }
-                } else {
-                    return todo
-                }
-            });
-        case 'ADD_COMMENT':
-            return state.map(todo => {
-                if (todo.id === action.todo.id) {
-                    const comments = [...todo.comments, action.comment]
-                    return {
-                        ...todo,
-                        comments,
                     }
                 } else {
                     return todo
