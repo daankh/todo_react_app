@@ -1,20 +1,22 @@
+import { ADD_TODO, EDIT_TODO, REMOVE_TODO } from '../actions/todos';
+
 const todosReducerDefaultState = {
     todosList: []
 }
 
 export default (state = todosReducerDefaultState, action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case ADD_TODO:
             return {
                 ...state,
                 todosList: [...state.todosList, action.todo]
             }
-        case 'REMOVE_TODO':
+        case REMOVE_TODO:
             return {
                 ...state,
                 todosList: state.todosList.filter(({ id }) => id !== action.id),
             }
-        case 'EDIT_TODO':
+        case EDIT_TODO:
             return {
                 ...state,
                 todosList: state.todosList.map(todo => {
