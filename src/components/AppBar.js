@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function ButtonAppBar(props) {
+export default function ButtonAppBar({ showAddTodoBtn, showHomeBtn }) {
     const classes = useStyles();
 
     return (
@@ -28,8 +28,8 @@ export default function ButtonAppBar(props) {
                     <Typography variant="h6" className={classes.title}>
                         Todo App
                     </Typography>
-                    {props.showAddTodoBtn && <AddTodoBtn />}
-                    {props.showHomeBtn && <HomeBtn />}
+                    {showAddTodoBtn && <AddTodoBtn />}
+                    {showHomeBtn && <HomeBtn />}
                 </Toolbar>
             </AppBar>
         </div>
