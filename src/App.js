@@ -12,7 +12,6 @@ const store = configureStore();
 const toEdit = store.dispatch(addTodo({
   name: 'Do your work',
   description: 'description of task 1',
-  comments: ['some comment', 'some comment 2'],
 }));
 
 const toRemove = store.dispatch(addTodo({
@@ -23,9 +22,8 @@ const toRemove = store.dispatch(addTodo({
 store.dispatch(addTodo({
   name: 'Make coffee',
   timestamp: 300000000,
-  done: false,
+  done: true,
   description: 'Some description',
-  comments: ['some comment', 'some comment 2', 'some comment 3'],
 }));
 
 store.dispatch(addTodo({
@@ -33,7 +31,6 @@ store.dispatch(addTodo({
   timestamp: 300000000,
   done: false,
   description: 'Some description',
-  comments: [],
 }));
 
 const toAddComment = store.dispatch(addTodo({
@@ -41,7 +38,6 @@ const toAddComment = store.dispatch(addTodo({
   timestamp: 300000000000,
   done: false,
   description: 'Some description of task 4',
-  comments: [],
 }));
 
 // console.log(store.getState())
@@ -63,7 +59,7 @@ store.dispatch(editTodo(toEditCopy))
 //Add comment test
 const comment = 'new comment';
 store.dispatch(addComment(toAddComment.todo.id, comment));
-store.dispatch(addComment(toAddComment.todo.id, 'some different comment'));
+store.dispatch(addComment(toAddComment.todo.id, 'some different'));
 
 console.log(store.getState())
 
