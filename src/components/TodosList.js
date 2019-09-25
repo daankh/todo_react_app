@@ -5,7 +5,6 @@ import TodosListItem from './TodosListItem';
 import getMatchTodoComments from '../selectors/comments';
 
 const TodoList = ({ todos, comments }) => {
-
   return (
     <Box component="div">
       {todos.map((todo) => {
@@ -19,8 +18,8 @@ const TodoList = ({ todos, comments }) => {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos,
-    comments: state.comments,
+    todos: state.todos.todosList,
+    comments: state.comments.commentsList,
   }
 }
 

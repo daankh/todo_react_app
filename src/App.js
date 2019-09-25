@@ -50,7 +50,7 @@ store.dispatch(removeTodo({ id: toRemove.todo.id }))
 //Edit todo test
 const toEditCopy = {
   ...toEdit.todo,
-  name: 'Ride a bikeee',
+  name: 'Ride a bike',
   timestamp: 200000000000,
 }
 
@@ -60,8 +60,6 @@ store.dispatch(editTodo(toEditCopy))
 const comment = 'new comment';
 store.dispatch(addComment(toAddComment.todo.id, comment));
 store.dispatch(addComment(toAddComment.todo.id, 'some different'));
-
-console.log(store.getState())
 
 function App() {
   return (
