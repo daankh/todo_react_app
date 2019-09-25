@@ -1,23 +1,33 @@
-
-const todosReducerDefaultState = [];
+const todosReducerDefaultState = {
+    todosList: []
+}
 
 export default (state = todosReducerDefaultState, action) => {
     switch (action.type) {
         case 'ADD_TODO':
-            return [...state, action.todo];
+            return {
+                ...state,
+                todosList: [...state.todosList, action.todo]
+            }
         case 'REMOVE_TODO':
-            return state.filter(({ id }) => id !== action.id);
+            return {
+                ...state,
+                todosList: state.todosList.filter(({ id }) => id !== action.id),
+            }
         case 'EDIT_TODO':
-            return state.map(expense => {
-                if (expense.id === action.id) {
-                    return {
-                        ...expense,
-                        ...action.updates,
+            return {
+                ...state,
+                todosList: state.todosList.map(todo => {
+                    if (todo.id === action.todo.id) {
+                        return {
+                            ...todo,
+                            ...action.todo,
+                        }
+                    } else {
+                        return todo
                     }
-                } else {
-                    return expense
-                }
-            })
+                })
+            }
         default:
             return state;
     }
