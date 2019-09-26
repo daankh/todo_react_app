@@ -8,9 +8,12 @@ import getMatchTodoComments from '../selectors/comments';
 const TodoList = ({ todos, comments, history }) => {
 
   const showDoneLast = (a, b) => a.done - b.done;
+  const showOnlyDone = () => { todos = todos.filter(todo => todo.done) }
+  const showOnlyOpen = () => { todos = todos.filter(todo => !todo.done) }
 
   let content = null;
   if (todos.length) {
+
     content = todos.sort(showDoneLast).map((todo) => {
       const todoComments = getMatchTodoComments(comments, todo.id)
       return <TodosListItem key={todo.id} {...todo} comments={todoComments} history={history} />
