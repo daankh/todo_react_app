@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeTodo } from '../actions/todos';
-import { addComment } from '../actions/comments';
+import { addComment, removeComment } from '../actions/comments';
 import moment from 'moment';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, addComment, history }) => {
+const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, addComment, removeComment, history }) => {
   const classes = useStyles();
 
   return (
@@ -64,7 +64,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
       </Button>
       </Box>
       <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} />
+      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} removeComment={removeComment} />
     </Box>
   );
 }
@@ -72,6 +72,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
 const mapDispatchToState = {
   removeTodo,
   addComment,
+  removeComment,
 }
 
 export default connect(null, mapDispatchToState)(TodosListItem);

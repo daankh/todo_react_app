@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Panel = ({ purpose, heading, todoId, content, addComment }) => {
+const Panel = ({ purpose, heading, todoId, content, addComment, removeComment }) => {
   const classes = useStyles();
   const [commentText, setCommentText] = useState('');
 
@@ -88,17 +88,17 @@ const Panel = ({ purpose, heading, todoId, content, addComment }) => {
     if (!content.length) {
       displayingContent = 'There are no comments. You can add some below.'
     } else {
-      console.log(content)
       displayingContent = (
-
-        content.map((comment, index) => (
+        content.map((comment) => (
           <Box key={comment.timestamp} component="div" className={classes.comment} p={1}>
             <Box className={classes.commentItem}>{comment.text}</Box>
             <Box>
               {moment(comment.timestamp).fromNow()}
             </Box>
             <Box>
-              <IconButton aria-label="delete" className={classes.margin}>
+              <IconButton aria-label="delete" className={classes.margin}
+                onClick={() => removeComment(comment)}
+              >
                 <DeleteIcon color="secondary" className={classes.btn} />
               </IconButton>
             </Box>
