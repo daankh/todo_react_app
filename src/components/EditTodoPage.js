@@ -1,10 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { editTodo } from '../actions/todos'
+import TodoForm from "./TodoFrom";
 
-const EditTodoPage = (props) => {
+const EditTodoPage = ({ todo, editTodo, history }) => {
+    const onSubmit = (todo) => {
+        editTodo(todo);
+        history.push('/list');
+    }
 
     return (
-        <p>It comes from edit page, element id: {props.match.params.id}</p>
+        <TodoForm
+            todo={todo}
+            onSubmit={onSubmit} />
     )
 }
 
-export default EditTodoPage;
+const mapDispatchToProps = {
+    editTodo,
+}
+
+const mapStateToProps = ({ todos }, { match }) => {
+    return {
+        todo: todos.todosList.find(todos => todos.id === match.params.id)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditTodoPage);

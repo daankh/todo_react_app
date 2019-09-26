@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeTodo } from '../actions/todos';
 import moment from 'moment';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -34,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TodosListItem = ({ id, name, timestamp, done, description, comments }) => {
+const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, history }) => {
   const classes = useStyles();
 
   return (
@@ -50,10 +53,12 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
           <span>created at: </span>
           {moment(timestamp).format('DD/MM/YYYY')}
         </Typography>
-        <Button variant="contained" color="primary" className={classes.button} onClick={(e) => console.log('edit')}>
+        <Button variant="contained" color="primary" className={classes.button}
+          onClick={() => history.push(`/${id}/edit`)}>
           Edit
       </Button>
-        <Button variant="contained" color="secondary" className={classes.button} onClick={(e) => console.log('remove')}>
+        <Button variant="contained" color="secondary" className={classes.button}
+          onClick={() => removeTodo({ id })}>
           Delete
       </Button>
       </Box>
@@ -63,4 +68,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments }) => 
   );
 }
 
-export default TodosListItem;
+const mapDispatchToState = {
+  removeTodo,
+}
+
+export default connect(null, mapDispatchToState)(TodosListItem);

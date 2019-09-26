@@ -21,6 +21,6 @@ export const removeTodo = ({ id } = {}) => ({
 //EDIT_TODO
 export const editTodo = (todo) => ({
     type: EDIT_TODO,
-    todo
+    todo,
 })
 
