@@ -16,11 +16,26 @@ class TodoForm extends Component {
         super(props);
 
         this.state = {
-            id: props.todo ? props.todo.id : '',
-            name: props.todo ? props.todo.name : '',
-            timestamp: props.todo ? props.todo.timestamp : moment().valueOf(),
-            done: props.todo ? props.todo.done : false,
-            description: props.todo ? props.todo.description : '',
+            id: '',
+            name: '',
+            timestamp: moment().valueOf(),
+            done: false,
+            description: '',
+        }
+    }
+
+    componentDidMount() {
+        if (this.props.todo) {
+
+            const { id, name, timestamp, done, description } = this.props.todo;
+
+            this.setState({
+                id,
+                name,
+                timestamp,
+                done,
+                description,
+            })
         }
     }
 
