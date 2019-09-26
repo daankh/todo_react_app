@@ -40,6 +40,7 @@ class TodoForm extends Component {
             const todo = {
                 ...this.state,
             }
+
             this.props.onSubmit(todo);
         }
     }
