@@ -17,6 +17,7 @@ export default (state = todosReducerDefaultState, action) => {
                 todosList: state.todosList.filter(({ id }) => id !== action.id),
             }
         case EDIT_TODO:
+
             return {
                 ...state,
                 todosList: state.todosList.map(todo => {

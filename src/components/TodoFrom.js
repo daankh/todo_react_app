@@ -9,16 +9,18 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import ButtonAppBar from './AppBar';
 import { classes } from 'istanbul-lib-coverage';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 
 class TodoForm extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            name: '',
-            timestamp: moment().valueOf(),
-            done: false,
-            description: '',
+            id: props.todo ? props.todo.id : '',
+            name: props.todo ? props.todo.name : '',
+            timestamp: props.todo ? props.todo.timestamp : moment().valueOf(),
+            done: props.todo ? props.todo.done : false,
+            description: props.todo ? props.todo.description : '',
         }
     }
 
