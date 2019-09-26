@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { removeTodo } from '../actions/todos';
 import { addComment, removeComment } from '../actions/comments';
+import { removeTodo, editTodo } from '../actions/todos';
 import moment from 'moment';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,14 +38,29 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, addComment, removeComment, history }) => {
+
+const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, editTodo, addComment, removeComment, history }) => {
   const classes = useStyles();
+  const [checkboxValue, toggleCheckbox] = useState(done);
+
+  const toggleDoneValue = () => {
+    toggleCheckbox(!checkboxValue);
+
+    editTodo({
+      id,
+      name,
+      timestamp,
+      done: !checkboxValue,
+      description,
+    })
+  }
 
   return (
     <Box component="div" className={classes.wrapper}>
       <Box component="div" p={1} className={classes.row}>
         <Checkbox
-          checked={done}
+          checked={checkboxValue}
+          onChange={toggleDoneValue}
         />
         <Typography variant="h4" component="h4" className={classes.mainHeading}>
           {name}
@@ -73,6 +88,7 @@ const mapDispatchToState = {
   removeTodo,
   addComment,
   removeComment,
+  editTodo,
 }
 
 export default connect(null, mapDispatchToState)(TodosListItem);
