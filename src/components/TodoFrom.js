@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
-import uuid from 'uuid';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
