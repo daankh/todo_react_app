@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeTodo } from '../actions/todos';
+import { addComment } from '../actions/comments';
 import moment from 'moment';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -70,6 +71,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
 
 const mapDispatchToState = {
   removeTodo,
+  addComment,
 }
 
 export default connect(null, mapDispatchToState)(TodosListItem);
