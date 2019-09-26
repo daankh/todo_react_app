@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, history }) => {
+const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, addComment, history }) => {
   const classes = useStyles();
 
   return (
@@ -64,7 +64,7 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
       </Button>
       </Box>
       <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
+      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} />
     </Box>
   );
 }

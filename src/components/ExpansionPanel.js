@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -37,8 +37,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Panel = ({ purpose, heading, content }) => {
+const Panel = ({ purpose, heading, todoId, content, addComment }) => {
   const classes = useStyles();
+  const [commentText, setCommentText] = useState('');
+
+  const commentTextHandler = (e) => {
+    const { value } = e.target;
+
+    setCommentText(value)
+  }
+
+  const addCommentHandler = () => {
+    addComment(todoId, commentText)
+    setCommentText('');
+  }
+
   let displayingContent = null;
 
   if (purpose === 'details') {
@@ -88,8 +101,10 @@ const Panel = ({ purpose, heading, content }) => {
                 <Input
                   type={'text'}
                   className={classes.addCommentInput}
-                  placeholder={'type your comment here'} />
-                <Button onClick={() => console.log('added')}>
+                  placeholder={'type your comment here'}
+                  value={commentText}
+                  onChange={commentTextHandler} />
+                <Button onClick={addCommentHandler}>
                   Add comment
                   </Button>
               </Box>
