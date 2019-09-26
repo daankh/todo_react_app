@@ -11,8 +11,8 @@ const TodoList = ({ todos, comments, history }) => {
   if (todos.length) {
     content = todos.map((todo) => {
       const todoComments = getMatchTodoComments(comments, todo.id)
-      const commentsToSend = todoComments.map(commnet => commnet.text)
-      return <TodosListItem key={todo.id} {...todo} comments={commentsToSend} history={history} />
+      // const commentsToSend = todoComments.map(commnet => commnet.text)
+      return <TodosListItem key={todo.id} {...todo} comments={todoComments} history={history} />
     })
   } else {
     content = (

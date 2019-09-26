@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { addComment, removeComment } from '../actions/comments';
 import { removeTodo, editTodo } from '../actions/todos';
 import moment from 'moment';
 
@@ -37,7 +38,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, editTodo, history }) => {
+
+const TodosListItem = ({ id, name, timestamp, done, description, comments, removeTodo, editTodo, addComment, removeComment, history }) => {
   const classes = useStyles();
   const [checkboxValue, toggleCheckbox] = useState(done);
 
@@ -77,20 +79,16 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
       </Button>
       </Box>
       <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} />
+      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} removeComment={removeComment} />
     </Box>
   );
 }
 
 const mapDispatchToState = {
   removeTodo,
+  addComment,
+  removeComment,
   editTodo,
 }
-
-// const mapStateToProps = ({ todos }, { match, id }) => {
-//   return {
-//     todo: todos.todosList.find(todo => todo.id === id)
-//   }
-// }
 
 export default connect(null, mapDispatchToState)(TodosListItem);
