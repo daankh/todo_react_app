@@ -5,13 +5,13 @@ import TodoForm from "./TodoFrom";
 
 const AddTodoPage = ({ addTodo, history }) => {
 
+    const onSubmit = (todo) => {
+        addTodo(todo);
+        history.push('/list');
+    }
+
     return (
-        <TodoForm onSubmit={
-            (todo) => {
-                addTodo(todo);
-                history.push('/list');
-            }
-        } />
+        <TodoForm onSubmit={onSubmit} />
     )
 }
 
