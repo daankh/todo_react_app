@@ -30,31 +30,13 @@ class TodoForm extends Component {
         })
     }
 
-    // addTodo = (e) => {
-    //     e.preventDefault();
-    //     const { name } = this.state
-    //     const { addTodo, history } = this.props
-
-    //     if (name) {
-    //         const todo = {
-    //             ...this.state,
-    //             id: uuid(),
-    //         }
-
-    //         addTodo(todo);
-    //         history.push('/list');
-    //     }
-    // }
-
     onSubmit = (e) => {
         e.preventDefault();
         const { name } = this.state
-        // const { onSubmit } = this.props
 
         if (name) {
             const todo = {
                 ...this.state,
-                id: uuid(),
             }
             this.props.onSubmit(todo);
         }

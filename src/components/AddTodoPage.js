@@ -8,7 +8,6 @@ const AddTodoPage = ({ addTodo, history }) => {
     return (
         <TodoForm onSubmit={
             (todo) => {
-                console.log(todo)
                 addTodo(todo);
                 history.push('/list');
             }
