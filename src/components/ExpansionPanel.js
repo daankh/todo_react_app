@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -46,6 +47,11 @@ const useStyles = makeStyles(theme => ({
     flexGrow: '1',
     marginRight: theme.spacing(1),
   },
+  commentItem: {
+    flexGrow: '1',
+    padding: theme.spacing(1),
+    fontSize: theme.typography.pxToRem(20),
+  },
   btn: {
     color: '#fff',
   },
@@ -82,10 +88,15 @@ const Panel = ({ purpose, heading, todoId, content, addComment }) => {
     if (!content.length) {
       displayingContent = 'There are no comments. You can add some below.'
     } else {
+      console.log(content)
       displayingContent = (
+
         content.map((comment, index) => (
-          <Box key={index} component="div" className={classes.comment} p={1}>
-            <Box>{comment}</Box>
+          <Box key={comment.timestamp} component="div" className={classes.comment} p={1}>
+            <Box className={classes.commentItem}>{comment.text}</Box>
+            <Box>
+              {moment(comment.timestamp).fromNow()}
+            </Box>
             <Box>
               <IconButton aria-label="delete" className={classes.margin}>
                 <DeleteIcon color="secondary" className={classes.btn} />
