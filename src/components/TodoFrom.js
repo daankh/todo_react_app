@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from '../actions/todos'
 import moment from 'moment';
 import uuid from 'uuid';
 import Box from '@material-ui/core/Box';
@@ -32,19 +30,33 @@ class TodoForm extends Component {
         })
     }
 
-    addTodo = (e) => {
+    // addTodo = (e) => {
+    //     e.preventDefault();
+    //     const { name } = this.state
+    //     const { addTodo, history } = this.props
+
+    //     if (name) {
+    //         const todo = {
+    //             ...this.state,
+    //             id: uuid(),
+    //         }
+
+    //         addTodo(todo);
+    //         history.push('/list');
+    //     }
+    // }
+
+    onSubmit = (e) => {
         e.preventDefault();
         const { name } = this.state
-        const { addTodo, history } = this.props
+        // const { onSubmit } = this.props
 
         if (name) {
             const todo = {
                 ...this.state,
                 id: uuid(),
             }
-
-            addTodo(todo);
-            history.push('/list');
+            this.props.onSubmit(todo);
         }
     }
 
@@ -55,37 +67,37 @@ class TodoForm extends Component {
             <Fragment>
                 <ButtonAppBar showHomeBtn={true} />
                 <Box component="div" p={1}>
-                    <FormControl fullWidth={true}>
-                        <InputLabel htmlFor="my-input">Todo name</InputLabel>
-                        <Input type='text'
-                            name='name'
-                            id="my-input"
-                            aria-describedby="my-helper-text"
-                            autoFocus={true}
-                            value={name}
-                            onChange={this.inputChangeHandler} />
-                        <FormHelperText id="my-helper-text">Type your new todo name</FormHelperText>
-                        <TextField
-                            id="outlined-name"
-                            name='description'
-                            label="Description"
-                            className={classes.textField}
-                            value={description}
-                            onChange={this.inputChangeHandler}
-                            margin="normal"
-                            variant="outlined"
-                            fullWidth={true}
-                        />
-                        <Button onClick={this.addTodo}>Add new todo</Button>
-                    </FormControl>
+                    <form onSubmit={this.onSubmit}>
+                        <FormControl fullWidth={true}>
+                            <InputLabel htmlFor="my-input">Todo name</InputLabel>
+                            <Input type='text'
+                                name='name'
+                                id="my-input"
+                                aria-describedby="my-helper-text"
+                                autoFocus={true}
+                                value={name}
+                                onChange={this.inputChangeHandler} />
+                            <FormHelperText id="my-helper-text">Type your new todo name</FormHelperText>
+                            <TextField
+                                id="outlined-name"
+                                name='description'
+                                label="Description"
+                                className={classes.textField}
+                                value={description}
+                                onChange={this.inputChangeHandler}
+                                margin="normal"
+                                variant="outlined"
+                                fullWidth={true}
+                            />
+                            <button>save todo</button>
+                        </FormControl>
+                    </form>
                 </Box>
             </Fragment>
         );
     }
 }
 
-const mapDispatchToProps = {
-    addTodo
-}
 
-export default connect(null, mapDispatchToProps)(TodoForm);
+
+export default TodoForm;

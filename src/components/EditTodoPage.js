@@ -1,9 +1,10 @@
 import React from 'react';
+import TodoForm from "./TodoFrom";
 
 const EditTodoPage = (props) => {
 
     return (
-        <p>It comes from edit page, element id: {props.match.params.id}</p>
+        <TodoForm {...props} />
     )
 }
 
