@@ -4,15 +4,15 @@ import { editTodo } from '../actions/todos'
 import TodoForm from "./TodoFrom";
 
 const EditTodoPage = ({ todo, editTodo, history }) => {
+    const onSubmit = (todo) => {
+        editTodo(todo);
+        history.push('/list');
+    }
+
     return (
         <TodoForm
             todo={todo}
-            onSubmit={
-                (todo) => {
-                    editTodo(todo);
-                    history.push('/list');
-                }
-            } />
+            onSubmit={onSubmit} />
     )
 }
 
