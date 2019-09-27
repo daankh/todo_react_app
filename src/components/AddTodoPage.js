@@ -5,18 +5,18 @@ import TodoForm from "./TodoFrom";
 
 const AddTodoPage = ({ addTodo, history }) => {
 
-    const onSubmit = (todo) => {
-        addTodo(todo);
-        history.push('/list');
-    }
+  const onSubmit = (todo) => {
+    addTodo(todo);
+    history.push('/list');
+  }
 
-    return (
-        <TodoForm onSubmit={onSubmit} />
-    )
+  return (
+    <TodoForm onSubmit={onSubmit} />
+  )
 }
 
 const mapDispatchToProps = {
-    addTodo
+  addTodo
 }
 
 export default connect(null, mapDispatchToProps)(AddTodoPage);

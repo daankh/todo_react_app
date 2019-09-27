@@ -13,24 +13,24 @@ import NotFoundPage from '../components/NotFoundPage';
 import AddTodoPage from '../components/AddTodoPage';
 
 const AppRouter = () => (
-    <HashRouter>
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="md">
-                <Paper>
-                    <Typography component="div" style={{ height: '100vh' }}>
-                        <Switch>
-                            <Route path='/' component={WelcomeScreen} exact={true} />
-                            <Route path='/list' component={TodosListPage} />
-                            <Route path='/add' component={AddTodoPage} />
-                            <Route path='/:id/edit' component={EditTodoPage} />
-                            <Route component={NotFoundPage} />
-                        </Switch>
-                    </Typography>
-                </Paper>
-            </Container>
-        </React.Fragment>
-    </HashRouter>
+  <HashRouter>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="md">
+        <Paper>
+          <Typography component="div" style={{ height: '100vh' }}>
+            <Switch>
+              <Route path='/' component={WelcomeScreen} exact={true} />
+              <Route path='/list' component={TodosListPage} />
+              <Route path='/add' component={AddTodoPage} />
+              <Route path='/:id/edit' component={EditTodoPage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Typography>
+        </Paper>
+      </Container>
+    </React.Fragment>
+  </HashRouter>
 )
 
 export default AppRouter;
