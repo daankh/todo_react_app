@@ -72,7 +72,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
             {moment(timestamp).format('DD/MM/YYYY')}
           </Typography>
           <Button variant="contained" color="primary" className={classes.button}
-            onClick={() => history.push(`/${id}/edit`)}>
+            onClick={() => history.push(`/${id}/edit`)}
+            disabled={checkboxValue}>
             Edit
       </Button>
           <Button variant="contained" color="secondary" className={classes.button}
@@ -81,7 +82,12 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
       </Button>
         </Box>
         <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-        <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} removeComment={removeComment} />
+        <ExpansionPanel purpose='comments'
+          heading={'Comments'}
+          content={comments}
+          todoId={id} addComment={addComment}
+          removeComment={removeComment}
+        />
       </Paper>
     </Box>
   );
