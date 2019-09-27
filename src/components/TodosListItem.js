@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import ExpansionPanel from './ExpansionPanel';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -57,29 +58,31 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
 
   return (
     <Box component="div" className={classes.wrapper}>
-      <Box component="div" p={1} className={classes.row}>
-        <Checkbox
-          checked={checkboxValue}
-          onChange={toggleDoneValue}
-        />
-        <Typography variant="h4" component="h4" className={classes.mainHeading}>
-          {name}
-        </Typography>
-        <Typography className={classes.timestamp}>
-          <span>created at: </span>
-          {moment(timestamp).format('DD/MM/YYYY')}
-        </Typography>
-        <Button variant="contained" color="primary" className={classes.button}
-          onClick={() => history.push(`/${id}/edit`)}>
-          Edit
+      <Paper>
+        <Box component="div" p={1} className={classes.row}>
+          <Checkbox
+            checked={checkboxValue}
+            onChange={toggleDoneValue}
+          />
+          <Typography variant="h4" component="h4" className={classes.mainHeading}>
+            {name}
+          </Typography>
+          <Typography className={classes.timestamp}>
+            <span>created at: </span>
+            {moment(timestamp).format('DD/MM/YYYY')}
+          </Typography>
+          <Button variant="contained" color="primary" className={classes.button}
+            onClick={() => history.push(`/${id}/edit`)}>
+            Edit
       </Button>
-        <Button variant="contained" color="secondary" className={classes.button}
-          onClick={() => removeTodo({ id })}>
-          Delete
+          <Button variant="contained" color="secondary" className={classes.button}
+            onClick={() => removeTodo({ id })}>
+            Delete
       </Button>
-      </Box>
-      <ExpansionPanel purpose='details' heading={'Details'} content={description} />
-      <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} removeComment={removeComment} />
+        </Box>
+        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
+        <ExpansionPanel purpose='comments' heading={'Comments'} content={comments} todoId={id} addComment={addComment} removeComment={removeComment} />
+      </Paper>
     </Box>
   );
 }
