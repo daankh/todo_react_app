@@ -8,7 +8,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import ButtonAppBar from './AppBar';
 import { classes } from 'istanbul-lib-coverage';
 import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 
 class TodoForm extends Component {
     constructor(props) {
@@ -77,19 +77,19 @@ class TodoForm extends Component {
                                 value={name}
                                 onChange={this.inputChangeHandler} />
                             <FormHelperText id="my-helper-text">Type your new todo name</FormHelperText>
-                            <TextField
-                                id="outlined-name"
-                                name='description'
-                                label="Description"
-                                className={classes.textField}
-                                value={description}
-                                onChange={this.inputChangeHandler}
-                                margin="normal"
-                                variant="outlined"
-                                fullWidth={true}
-                            />
-                            <button>save todo</button>
                         </FormControl>
+                        <TextField
+                            id="outlined-name"
+                            name='description'
+                            label="Description"
+                            className={classes.textField}
+                            value={description}
+                            onChange={this.inputChangeHandler}
+                            margin="normal"
+                            variant="outlined"
+                            fullWidth={true}
+                        />
+                        <Input type='submit' value='Save todo' />
                     </form>
                 </Box>
             </Fragment>
