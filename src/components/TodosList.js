@@ -11,19 +11,19 @@ const TodoList = ({ todos, comments, history, filterType }) => {
   const showDoneOnly = () => { todos = todos.filter(todo => todo.done) }
   const showOpenOnly = () => { todos = todos.filter(todo => !todo.done) }
 
+  switch (filterType) {
+    case 'done':
+      showDoneOnly();
+      break;
+    case 'open':
+      showOpenOnly();
+      break;
+    default:
+      break;
+  }
+
   let content = null;
   if (todos.length) {
-    switch (filterType) {
-      case 'done':
-        showDoneOnly();
-        break;
-      case 'open':
-        showOpenOnly();
-        break;
-      default:
-        break;
-    }
-
     content = todos.sort(showDoneLast).map((todo) => {
       const todoComments = getMatchTodoComments(comments, todo.id)
       return <TodosListItem key={todo.id} {...todo} comments={todoComments} history={history} />
