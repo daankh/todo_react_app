@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import ExpansionPanel from './ExpansionPanel';
 import Paper from '@material-ui/core/Paper';
+import Dialog from './Dialog';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
@@ -76,10 +77,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
             disabled={checkboxValue}>
             Edit
       </Button>
-          <Button variant="contained" color="secondary" className={classes.button}
-            onClick={() => removeTodo({ id })}>
-            Delete
-      </Button>
+
+          <Dialog btnType='removeBtn' id={id} removeTodo={removeTodo} />
         </Box>
         <ExpansionPanel purpose='details' heading={'Details'} content={description} />
         <ExpansionPanel purpose='comments'
