@@ -8,11 +8,16 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import Fab from '@material-ui/core/Fab';
 
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
-    cursor: 'pointer'
+    cursor: 'pointer',
+  },
+  fab: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -35,14 +40,21 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
     setOpen(false);
   };
 
-  let button = null
+  let button = null;
+  let heading = null;
+  let message = null;
+  let disagreeText = null;
+  let agreeText = null;
   if (btnType === 'removeBtn') {
     button = (
-      <Button variant="contained" color="secondary" className={classes.button}
-        onClick={handleClickOpen}>
-        Delete
-      </Button>
-    )
+      <Fab color="secondary" aria-label="add" className={classes.fab} size='medium' onClick={handleClickOpen}>
+        <DeleteForeverIcon />
+      </Fab>
+    );
+    heading = 'Remove todo';
+    message = 'Do you really want to remove this todo?';
+    disagreeText = 'No';
+    agreeText = 'Remove'
   }
 
   return (
@@ -54,18 +66,18 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <DialogTitle id="responsive-dialog-title">{"Delete todo"}</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">{heading}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Do you really want to remove this todo?
+            {message}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" autoFocus>
-            No
+            {disagreeText}
           </Button>
           <Button onClick={removeTodoHandler} color="secondary" >
-            Delete
+            {agreeText}
           </Button>
         </DialogActions>
       </Dialog>
