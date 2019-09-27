@@ -33,6 +33,8 @@ const FilterSelect = ({ filterType, setFilterType }) => {
       [event.target.name]: event.target.value,
     }));
     setFilterType(() => filterType = event.target.value)
+
+
   };
 
   return (

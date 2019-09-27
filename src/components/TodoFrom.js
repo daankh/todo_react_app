@@ -61,11 +61,24 @@ class TodoForm extends Component {
   render() {
 
     const { name, description } = this.state
+
+    const formStyles = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+    }
+
+    const submitButtonStyle = {
+      minWidth: '20%',
+      marginRight: '2rem',
+      marginTop: '1rem',
+    }
+
     return (
       <Fragment>
         <ButtonAppBar showHomeBtn={true} />
-        <Box component="div" p={1}>
-          <form onSubmit={this.onSubmit}>
+        <Box component="div" p={3}>
+          <form onSubmit={this.onSubmit} style={formStyles}>
             <FormControl fullWidth={true}>
               <InputLabel htmlFor="my-input">Todo name</InputLabel>
               <Input type='text'
@@ -88,7 +101,7 @@ class TodoForm extends Component {
               variant="outlined"
               fullWidth={true}
             />
-            <Input type='submit' value='Save todo' />
+            <Input type='submit' value='Save todo' style={submitButtonStyle} />
           </form>
         </Box>
       </Fragment>
