@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+
+const baseColor = '#fff'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,9 +38,9 @@ const FilterSelect = ({ filterType, setFilterType }) => {
   return (
     <FormControl className={classes.formControl}>
       <InputLabel htmlFor="filter-simple"
-        style={{ color: '#fff' }}>Filter</InputLabel>
+        style={{ color: baseColor }}>Filter</InputLabel>
       <Select
-        style={{ color: '#fff' }}
+        style={{ color: baseColor }}
         value={values.filter}
         onChange={handleChange}
         inputProps={{
