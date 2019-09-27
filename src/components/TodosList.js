@@ -5,14 +5,24 @@ import NoTodosInfo from './NoTodosInfo';
 import TodosListItem from './TodosListItem';
 import getMatchTodoComments from '../selectors/comments';
 
-const TodoList = ({ todos, comments, history }) => {
+const TodoList = ({ todos, comments, history, filterType }) => {
 
   const showDoneLast = (a, b) => a.done - b.done;
-  const showOnlyDone = () => { todos = todos.filter(todo => todo.done) }
-  const showOnlyOpen = () => { todos = todos.filter(todo => !todo.done) }
+  const showDoneOnly = () => { todos = todos.filter(todo => todo.done) }
+  const showOpenOnly = () => { todos = todos.filter(todo => !todo.done) }
 
   let content = null;
   if (todos.length) {
+    switch (filterType) {
+      case 'done':
+        showDoneOnly();
+        break;
+      case 'open':
+        showOpenOnly();
+        break;
+      default:
+        break;
+    }
 
     content = todos.sort(showDoneLast).map((todo) => {
       const todoComments = getMatchTodoComments(comments, todo.id)
