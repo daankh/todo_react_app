@@ -27,21 +27,15 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpenClose = () => setOpen(!open);
 
   const removeTodoHandler = () => {
     removeTodo({ id });
-    setOpen(false);
+    handleOpenClose();
   };
 
   const button = (
-    <Fab color="secondary" aria-label="add" className={classes.fab} size='medium' onClick={handleClickOpen}>
+    <Fab color="secondary" aria-label="add" className={classes.fab} size='medium' onClick={handleOpenClose}>
       <DeleteForeverIcon />
     </Fab>
   );
@@ -56,7 +50,7 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
       <Dialog
         fullScreen={fullScreen}
         open={open}
-        onClose={handleClose}
+        onClose={handleOpenClose}
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">{heading}</DialogTitle>
@@ -66,7 +60,7 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleOpenClose} color="primary" autoFocus>
             {disagreeText}
           </Button>
           <Button onClick={removeTodoHandler} color="secondary" >
