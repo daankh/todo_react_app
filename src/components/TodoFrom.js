@@ -9,6 +9,18 @@ import ButtonAppBar from './AppBar';
 import { classes } from 'istanbul-lib-coverage';
 import TextField from '@material-ui/core/TextField';
 
+const formStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
+}
+
+const submitButtonStyle = {
+  minWidth: '20%',
+  marginRight: '2rem',
+  marginTop: '1rem',
+}
+
 class TodoForm extends Component {
   constructor(props) {
     super(props);
@@ -61,18 +73,6 @@ class TodoForm extends Component {
   render() {
 
     const { name, description } = this.state
-
-    const formStyles = {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-end',
-    }
-
-    const submitButtonStyle = {
-      minWidth: '20%',
-      marginRight: '2rem',
-      marginTop: '1rem',
-    }
 
     return (
       <Fragment>
