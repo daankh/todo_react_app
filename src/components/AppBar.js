@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(0),
   },
   title: {
     flexGrow: 1,
@@ -26,7 +26,7 @@ export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHom
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h4" className={classes.title}>
             Todo App
                     </Typography>
           {showFilterSelect && <FilterSelect filterType={filterType} setFilterType={setFilterType} />}

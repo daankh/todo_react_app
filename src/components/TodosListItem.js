@@ -7,16 +7,21 @@ import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import ExpansionPanel from './ExpansionPanel';
 import Paper from '@material-ui/core/Paper';
+import Dialog from './Dialog';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
 
 const useStyles = makeStyles(theme => ({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
     marginBottom: '10px'
+  },
+  fab: {
+    margin: theme.spacing(1),
   },
   row: {
     display: 'flex',
@@ -26,10 +31,6 @@ const useStyles = makeStyles(theme => ({
   },
   mainHeading: {
     flexGrow: 1,
-  },
-  button: {
-    margin: theme.spacing(1),
-    cursor: 'pointer'
   },
   input: {
     display: 'none',
@@ -71,15 +72,13 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
             <span>created at: </span>
             {moment(timestamp).format('DD/MM/YYYY')}
           </Typography>
-          <Button variant="contained" color="primary" className={classes.button}
+          <Fab color="primary" aria-label="add" className={classes.fab} size='medium'
             onClick={() => history.push(`/${id}/edit`)}
-            disabled={checkboxValue}>
-            Edit
-      </Button>
-          <Button variant="contained" color="secondary" className={classes.button}
-            onClick={() => removeTodo({ id })}>
-            Delete
-      </Button>
+            disabled={checkboxValue}
+          >
+            <EditIcon />
+          </Fab>
+          <Dialog btnType='removeBtn' id={id} removeTodo={removeTodo} />
         </Box>
         <ExpansionPanel purpose='details' heading={'Details'} content={description} />
         <ExpansionPanel purpose='comments'
