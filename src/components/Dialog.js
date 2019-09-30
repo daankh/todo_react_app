@@ -40,22 +40,15 @@ export default function ResponsiveDialog({ btnType, id, removeTodo }) {
     setOpen(false);
   };
 
-  let button = null;
-  let heading = null;
-  let message = null;
-  let disagreeText = null;
-  let agreeText = null;
-  if (btnType === 'removeBtn') {
-    button = (
-      <Fab color="secondary" aria-label="add" className={classes.fab} size='medium' onClick={handleClickOpen}>
-        <DeleteForeverIcon />
-      </Fab>
-    );
-    heading = 'Remove todo';
-    message = 'Do you really want to remove this todo?';
-    disagreeText = 'No';
-    agreeText = 'Remove'
-  }
+  const button = (
+    <Fab color="secondary" aria-label="add" className={classes.fab} size='medium' onClick={handleClickOpen}>
+      <DeleteForeverIcon />
+    </Fab>
+  );
+  const heading = 'Remove todo';
+  const message = 'Do you really want to remove this todo?';
+  const disagreeText = 'No';
+  const agreeText = 'Remove'
 
   return (
     <div>
