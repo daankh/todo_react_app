@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import ButtonAppBar from '../components/AppBar';
-import TodosList from './TodosList'
+import ButtonAppBar from '../AppBar/AppBar';
+import TodosList from '../TodosList/TodosList'
 
 const TodosListPage = (props) => {
 

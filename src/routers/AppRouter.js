@@ -6,11 +6,11 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import WelcomeScreen from '../components/WelcomeScreen';
-import TodosListPage from '../components/TodosListPage';
-import EditTodoPage from '../components/EditTodoPage';
-import NotFoundPage from '../components/NotFoundPage';
-import AddTodoPage from '../components/AddTodoPage';
+import WelcomeScreen from '../components/Pages/WelcomeScreen';
+import TodosListPage from '../components/Pages/TodosListPage';
+import EditTodoPage from '../components/Pages/EditTodoPage';
+import NotFoundPage from '../components/Pages/NotFoundPage';
+import AddTodoPage from '../components/Pages/AddTodoPage';
 
 const AppRouter = () => (
   <HashRouter>

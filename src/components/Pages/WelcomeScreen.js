@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import ButtonAppBar from '../components/AppBar';
-import WelcomeInfo from './WelcomeInfo';
+import ButtonAppBar from '../AppBar/AppBar';
+import WelcomeInfo from '../Info/WelcomeInfo';
 
 const WelcomeScreen = () => {
   return (

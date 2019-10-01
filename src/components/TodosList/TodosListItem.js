@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addComment, removeComment } from '../actions/comments';
-import { removeTodo, editTodo } from '../actions/todos';
+import { addComment, removeComment } from '../../actions/comments';
+import { removeTodo, editTodo } from '../../actions/todos';
 import moment from 'moment';
 
 import { makeStyles } from '@material-ui/core/styles';

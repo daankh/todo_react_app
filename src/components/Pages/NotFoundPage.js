@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import AppBar from './AppBar'
+import AppBar from '../AppBar/AppBar'
 
 const NotFoundPage = () => {
   return (
