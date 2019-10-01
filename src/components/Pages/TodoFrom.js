@@ -4,6 +4,7 @@ import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import ButtonAppBar from '../AppBar/AppBar';
 import { classes } from 'istanbul-lib-coverage';
@@ -13,12 +14,6 @@ const formStyles = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
-}
-
-const submitButtonStyle = {
-  minWidth: '20%',
-  marginRight: '2rem',
-  marginTop: '1rem',
 }
 
 class TodoForm extends Component {
@@ -101,7 +96,11 @@ class TodoForm extends Component {
               variant="outlined"
               fullWidth={true}
             />
-            <Input type='submit' value='Save todo' style={submitButtonStyle} />
+            <Button
+              type='submit'
+              color='primary'>
+              Save todo
+            </Button>
           </form>
         </Box>
       </Fragment>
