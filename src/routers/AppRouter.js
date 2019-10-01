@@ -14,22 +14,19 @@ import AddTodoPage from '../components/Pages/AddTodoPage';
 
 const AppRouter = () => (
   <HashRouter>
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="md">
-        <Paper>
-          <Typography component="div" style={{ height: '100vh' }}>
-            <Switch>
-              <Route path='/' component={WelcomeScreen} exact={true} />
-              <Route path='/list' component={TodosListPage} />
-              <Route path='/add' component={AddTodoPage} />
-              <Route path='/:id/edit' component={EditTodoPage} />
-              <Route component={NotFoundPage} />
-            </Switch>
-          </Typography>
+    <CssBaseline>
+      <Container maxWidth="lg">
+        <Paper style={{ height: '100vh' }}>
+          <Switch>
+            <Route path='/' component={WelcomeScreen} exact={true} />
+            <Route path='/list' component={TodosListPage} />
+            <Route path='/add' component={AddTodoPage} />
+            <Route path='/:id/edit' component={EditTodoPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
         </Paper>
       </Container>
-    </React.Fragment>
+    </CssBaseline>
   </HashRouter>
 )
 
