@@ -80,7 +80,9 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
           </Fab>
           <Dialog btnType='removeBtn' id={id} removeTodo={removeTodo} />
         </Box>
-        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
+        <ExpansionPanel purpose='details'
+          heading={'Description'}
+          content={description} />
         <ExpansionPanel purpose='comments'
           heading={'Comments'}
           content={comments}

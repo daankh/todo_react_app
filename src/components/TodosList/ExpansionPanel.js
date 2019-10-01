@@ -76,7 +76,7 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
 
   if (purpose === 'details') {
     if (!content) {
-      displayingContent = 'There are no details. You can add it in edit mode.'
+      displayingContent = 'There is no description here. You can add it in edit mode.'
     } else {
       displayingContent = (
         <Box>
