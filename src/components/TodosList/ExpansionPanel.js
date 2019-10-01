@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Comment from './Comment';
+import AddCommentForm from './AddCommentForm';
 
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -8,16 +9,10 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Box from '@material-ui/core/Box';
-import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button';
-
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-  },
-  margin: {
-    margin: theme.spacing(1),
   },
   extendedIcon: {
     marginRight: theme.spacing(1),
@@ -28,31 +23,12 @@ const useStyles = makeStyles(theme => ({
   },
   wrapper: {
     width: '100%',
-  },
-  addCommentWrapper: {
-    width: '100%',
-    display: 'flex',
-  },
-  addCommentInput: {
-    flexGrow: '1',
-    marginRight: theme.spacing(1),
   }
 }));
 
 const Panel = ({ purpose, heading, todoId, content, addComment, removeComment }) => {
   const classes = useStyles();
-  const [commentText, setCommentText] = useState('');
 
-  const commentTextHandler = (e) => {
-    const { value } = e.target;
-
-    setCommentText(value)
-  }
-
-  const addCommentHandler = () => {
-    addComment(todoId, commentText)
-    setCommentText('');
-  }
 
   let displayingContent = null;
 
@@ -89,26 +65,15 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>
+          <Typography
+            className={classes.heading}>
             {heading}
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Box className={classes.wrapper}>
             {displayingContent}
-            {purpose === 'comments' && (
-              <Box component="div" className={classes.addCommentWrapper}>
-                <Input
-                  type={'text'}
-                  className={classes.addCommentInput}
-                  placeholder={'type your comment here'}
-                  value={commentText}
-                  onChange={commentTextHandler} />
-                <Button onClick={addCommentHandler}>
-                  Add comment
-                </Button>
-              </Box>
-            )}
+            {purpose === 'comments' && <AddCommentForm todoId={todoId} addComment={addComment} />}
           </Box>
         </ExpansionPanelDetails>
       </ExpansionPanel>
