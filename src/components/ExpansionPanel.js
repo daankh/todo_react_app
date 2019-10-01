@@ -32,6 +32,7 @@ const useStyles = makeStyles(theme => ({
   comment: {
     width: '100%',
     marginBottom: theme.spacing(1),
+    paddingLeft: theme.spacing(1),
     backgroundColor: '#3F51B5',
     color: '#fff',
     borderRadius: '5px',
@@ -39,9 +40,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  commentWrapper: {
+  addCommentWrapper: {
     width: '100%',
-    display: 'flex'
+    display: 'flex',
   },
   addCommentInput: {
     flexGrow: '1',
@@ -49,8 +50,7 @@ const useStyles = makeStyles(theme => ({
   },
   commentItem: {
     flexGrow: '1',
-    padding: theme.spacing(1),
-    fontSize: theme.typography.pxToRem(20),
+    fontSize: theme.typography.pxToRem(16),
   },
   btn: {
     color: '#fff',
@@ -90,18 +90,18 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
     } else {
       displayingContent = (
         content.map((comment) => (
-          <Box key={comment.timestamp} component="div" className={classes.comment} p={1}>
+          <Box key={comment.timestamp}
+            component="div"
+            className={classes.comment} >
             <Box className={classes.commentItem}>{comment.text}</Box>
             <Box>
               {moment(comment.timestamp).fromNow()}
             </Box>
-            <Box>
-              <IconButton aria-label="delete" className={classes.margin}
-                onClick={() => removeComment(comment)}
-              >
-                <DeleteIcon color="secondary" className={classes.btn} />
-              </IconButton>
-            </Box>
+            <IconButton aria-label="delete" className={classes.margin}
+              onClick={() => removeComment(comment)}
+            >
+              <DeleteIcon color="secondary" className={classes.btn} />
+            </IconButton>
           </Box>
         ))
       )
@@ -127,7 +127,7 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
           <Box className={classes.wrapper}>
             {displayingContent}
             {purpose === 'comments' && (
-              <Box component="div" className={classes.commentWrapper} p={1}>
+              <Box component="div" className={classes.addCommentWrapper}>
                 <Input
                   type={'text'}
                   className={classes.addCommentInput}
