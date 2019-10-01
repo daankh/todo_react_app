@@ -1,7 +1,7 @@
 import { SHOW_ALL, SHOW_DONE, SHOW_OPEN } from '../actions/filters';
 
 const filtersReducerDefaultState = {
-  filter: 'all',
+  show: 'all',
 }
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -9,17 +9,17 @@ export default (state = filtersReducerDefaultState, action) => {
     case SHOW_ALL:
       return {
         ...state,
-        filter: action.filter,
+        show: action.filter,
       };
     case SHOW_DONE:
       return {
         ...state,
-        filter: action.filter,
+        show: action.filter,
       };
     case SHOW_OPEN:
       return {
         ...state,
-        filter: action.filter,
+        show: action.filter,
       };
     default:
       return state;
