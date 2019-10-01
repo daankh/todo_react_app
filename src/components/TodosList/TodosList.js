@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Box from '@material-ui/core/Box';
 import NoTodosInfo from '../Info/NoTodosInfo';
 import TodosListItem from './TodosListItem';
-import getMatchTodoComments from '../../selectors/comments';
+import getMatchTodoComments from '../../redux/selectors/comments';
 
 const TodoList = ({ todos, comments, history, filterType }) => {
 
