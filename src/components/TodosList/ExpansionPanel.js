@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import moment from 'moment';
+import Comment from './Comment';
+
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -9,8 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Box from '@material-ui/core/Box';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,17 +29,6 @@ const useStyles = makeStyles(theme => ({
   wrapper: {
     width: '100%',
   },
-  comment: {
-    width: '100%',
-    marginBottom: theme.spacing(1),
-    paddingLeft: theme.spacing(1),
-    backgroundColor: '#3F51B5',
-    color: '#fff',
-    borderRadius: '5px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
   addCommentWrapper: {
     width: '100%',
     display: 'flex',
@@ -47,14 +36,7 @@ const useStyles = makeStyles(theme => ({
   addCommentInput: {
     flexGrow: '1',
     marginRight: theme.spacing(1),
-  },
-  commentItem: {
-    flexGrow: '1',
-    fontSize: theme.typography.pxToRem(16),
-  },
-  btn: {
-    color: '#fff',
-  },
+  }
 }));
 
 const Panel = ({ purpose, heading, todoId, content, addComment, removeComment }) => {
@@ -90,19 +72,7 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
     } else {
       displayingContent = (
         content.map((comment) => (
-          <Box key={comment.timestamp}
-            component="div"
-            className={classes.comment} >
-            <Box className={classes.commentItem}>{comment.text}</Box>
-            <Box>
-              {moment(comment.timestamp).fromNow()}
-            </Box>
-            <IconButton aria-label="delete" className={classes.margin}
-              onClick={() => removeComment(comment)}
-            >
-              <DeleteIcon color="secondary" className={classes.btn} />
-            </IconButton>
-          </Box>
+          <Comment key={comment.timestamp} comment={comment} removeComment={removeComment} />
         ))
       )
     }
