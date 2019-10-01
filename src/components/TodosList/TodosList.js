@@ -6,7 +6,7 @@ import TodosListItem from './TodosListItem';
 import getMatchTodoComments from '../../redux/selectors/comments';
 import getMatchTodos from '../../redux/selectors/todos';
 
-const TodoList = ({ todos, comments, history, filterType }) => {
+const TodoList = ({ todos, comments, history }) => {
 
   // const showDoneLast = (a, b) => a.done - b.done;
   // const showDoneOnly = () => { todos = todos.filter(todo => todo.done) }

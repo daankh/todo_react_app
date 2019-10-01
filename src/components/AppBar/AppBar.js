@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHomeBtn, filterType, setFilterType }) {
+export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHomeBtn }) {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHom
           <Typography variant="h4" className={classes.title}>
             Todo App
                     </Typography>
-          {showFilterSelect && <FilterSelect filterType={filterType} setFilterType={setFilterType} />}
+          {showFilterSelect && <FilterSelect />}
           {showAddTodoBtn && <AddTodoBtn />}
           {showHomeBtn && <HomeBtn />}
         </Toolbar>

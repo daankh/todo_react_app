@@ -9,17 +9,17 @@ export default (state = filtersReducerDefaultState, action) => {
     case SHOW_ALL:
       return {
         ...state,
-        show: action.filter,
+        show: action.show,
       };
     case SHOW_DONE:
       return {
         ...state,
-        show: action.filter,
+        show: action.show,
       };
     case SHOW_OPEN:
       return {
         ...state,
-        show: action.filter,
+        show: action.show,
       };
     default:
       return state;

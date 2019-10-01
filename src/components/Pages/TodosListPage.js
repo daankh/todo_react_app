@@ -1,15 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import ButtonAppBar from '../AppBar/AppBar';
 import TodosList from '../TodosList/TodosList'
 
 const TodosListPage = (props) => {
 
-  const [filterType, setFilterType] = useState('all');
-
   return (
     <Fragment>
-      <ButtonAppBar showAddTodoBtn={true} showFilterSelect={true} filterType={filterType} setFilterType={setFilterType} />
-      <TodosList {...props} filterType={filterType} />
+      <ButtonAppBar showAddTodoBtn={true} showFilterSelect={true} />
+      <TodosList {...props} />
     </Fragment>
   )
 }
