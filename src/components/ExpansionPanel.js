@@ -136,7 +136,7 @@ const Panel = ({ purpose, heading, todoId, content, addComment, removeComment })
                   onChange={commentTextHandler} />
                 <Button onClick={addCommentHandler}>
                   Add comment
-                  </Button>
+                </Button>
               </Box>
             )}
           </Box>

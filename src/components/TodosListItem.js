@@ -84,7 +84,8 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
         <ExpansionPanel purpose='comments'
           heading={'Comments'}
           content={comments}
-          todoId={id} addComment={addComment}
+          todoId={id}
+          addComment={addComment}
           removeComment={removeComment}
         />
       </Paper>
