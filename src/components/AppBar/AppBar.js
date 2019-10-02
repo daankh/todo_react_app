@@ -4,8 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import FilterSelect from './FilterSelect';
-import AddTodoBtn from './AddTodoBtn';
-import HomeBtn from './HomeBtn';
+import AddTodoBtn from '../Buttons/AddTodoBtn';
+import HomeBtn from '../Buttons/HomeBtn';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHomeBtn, filterType, setFilterType }) {
+export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHomeBtn }) {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ export default function ButtonAppBar({ showFilterSelect, showAddTodoBtn, showHom
           <Typography variant="h4" className={classes.title}>
             Todo App
                     </Typography>
-          {showFilterSelect && <FilterSelect filterType={filterType} setFilterType={setFilterType} />}
+          {showFilterSelect && <FilterSelect />}
           {showAddTodoBtn && <AddTodoBtn />}
           {showHomeBtn && <HomeBtn />}
         </Toolbar>

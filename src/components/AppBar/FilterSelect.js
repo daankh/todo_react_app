@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { showAll, showDone, showOpen } from '../../redux/actions/filters';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -21,19 +23,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const FilterSelect = ({ filterType, setFilterType }) => {
+const FilterSelect = ({ show, showAll, showDone, showOpen }) => {
   const classes = useStyles();
   const [values, setValues] = useState({
-    filter: filterType,
+    filter: show,
   });
 
   const handleChange = event => {
+    const { value, name } = event.target;
+
     setValues(oldValues => ({
       ...oldValues,
-      [event.target.name]: event.target.value,
+      [name]: value,
     }));
-    setFilterType(() => filterType = event.target.value)
 
+    if (value === 'all') {
+      showAll();
+    } else if (value === 'open') {
+      showOpen();
+    } else if (value === 'done') {
+      showDone();
+    }
 
   };
 
@@ -58,4 +68,16 @@ const FilterSelect = ({ filterType, setFilterType }) => {
   )
 }
 
-export default FilterSelect
+const maptStateToProps = ({ filters }) => {
+  return {
+    show: filters.show
+  }
+}
+
+const mapDispatchToState = {
+  showAll,
+  showDone,
+  showOpen,
+}
+
+export default connect(maptStateToProps, mapDispatchToState)(FilterSelect)

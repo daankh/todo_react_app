@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editTodo } from '../actions/todos'
+import { editTodo } from '../../redux/actions/todos'
 import TodoForm from "./TodoFrom";
 
 const EditTodoPage = ({ todo, editTodo, history }) => {

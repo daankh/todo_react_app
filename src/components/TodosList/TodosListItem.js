@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addComment, removeComment } from '../actions/comments';
-import { removeTodo, editTodo } from '../actions/todos';
+import { addComment, removeComment } from '../../redux/actions/comments';
+import { removeTodo, editTodo } from '../../redux/actions/todos';
 import moment from 'moment';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -80,11 +80,14 @@ const TodosListItem = ({ id, name, timestamp, done, description, comments, remov
           </Fab>
           <Dialog btnType='removeBtn' id={id} removeTodo={removeTodo} />
         </Box>
-        <ExpansionPanel purpose='details' heading={'Details'} content={description} />
+        <ExpansionPanel purpose='details'
+          heading={'Description'}
+          content={description} />
         <ExpansionPanel purpose='comments'
           heading={'Comments'}
           content={comments}
-          todoId={id} addComment={addComment}
+          todoId={id}
+          addComment={addComment}
           removeComment={removeComment}
         />
       </Paper>
